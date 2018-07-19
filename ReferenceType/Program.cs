@@ -17,8 +17,9 @@ namespace ReferenceType
             Console.WriteLine(c.Age);
 
             Lion l = new Lion(); // 클래스 class 참조
-            GrowLion(ref l);
+            GrowLion(l);
             Console.WriteLine(l.Age);
+            return;
 
             foo();
         }
@@ -29,7 +30,7 @@ namespace ReferenceType
         }
 
         //이곳에서의 ref는 2중 포인터의 느낌과 같다. **
-        static void GrowLion(ref Lion a)
+        static void GrowLion(Lion a)
         {
             a.Age++;
         }
