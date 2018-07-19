@@ -12,35 +12,30 @@ namespace ReferenceType
         
         static void Main(string[] args)
         {
-            short a = 1;
-            short b = 2;
-            Swap(&a, &b);
-            Console.WriteLine(a);
-            Console.WriteLine(b);
-            return;
+            Cat c = new Cat(); // 구조체 struct 참조
+            GrowCat(ref c);
+            Console.WriteLine(c.Age);
 
-            Lion l = new Lion();
-            LionGrow(l);
+            Lion l = new Lion(); // 클래스 class 참조
+            GrowLion(ref l);
             Console.WriteLine(l.Age);
 
-            Cat c = new Cat();
-            CatGrow(c);
-            Console.WriteLine(c.Age);
+            foo();
         }
 
-        static void Swap(short* a, short* b)
+        private static void foo()
         {
-            short s = *a;
-            *a = *b;
-            *b = s;
+            Lion l1 = new Lion();
         }
 
-        static void LionGrow(Lion a)
+        //이곳에서의 ref는 2중 포인터의 느낌과 같다. **
+        static void GrowLion(ref Lion a)
         {
             a.Age++;
         }
 
-        static void CatGrow(Cat a) // overloading
+        //ref는 포인터랑 같은 의미를 가지고잇음 또는 out 사용
+        static void GrowCat(ref Cat a) // overloading
         {
             a.Age++;
         }
